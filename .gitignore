@@ -1,0 +1,16 @@
+# Files the Claude desktop app drops into the working folder
+Claude outputs/
+
+# Archives and local scratch
+*.zip
+*.log
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp

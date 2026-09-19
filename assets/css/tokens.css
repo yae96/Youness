@@ -1,0 +1,61 @@
+/* Design tokens: type, colour, theme.
+   Every colour is declared on bare :root first, then redefined per theme,
+   so the un-stamped (system-preference) state always resolves. */
+
+/* Metric-matched fallbacks — text paints immediately, swap causes no shift */
+@font-face {
+  font-family: 'Inter-fallback';
+  src: local('Helvetica Neue'), local('Arial'), local('Segoe UI'), local('Roboto');
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Mono-fallback';
+  src: local('SF Mono'), local('Menlo'), local('Consolas'), local('DejaVu Sans Mono');
+  size-adjust: 100%;
+  ascent-override: 102%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
+
+/* ── Tokens ──────────────────────────────────────────────── */
+:root {
+  --bg:        #0B0D0E;
+  --bg-card:   #141618;
+  --bg-subtle: #1A1D1F;
+  --border:    #252829;
+  --text:      #EAEAEA;
+  --muted:     #7A8087;
+  --accent:    #F26322;
+  --accent-dim:#7A3010;
+  --good:      #0CCE6B;
+  --warn:      #FFA400;
+  --bad:       #FF4E42;
+  --font-sans: 'Inter', 'Inter-fallback', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Mono-fallback', ui-monospace, monospace;
+  --max:       1100px;
+  --radius:    6px;
+  --transition: 240ms cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg:        #F2F0EC;
+    --bg-card:   #E8E6E2;
+    --bg-subtle: #DCD9D4;
+    --border:    #C8C4BD;
+    --text:      #141618;
+    --muted:     #5A5E63;
+    --accent-dim:#FFD5BC;
+  }
+}
+:root[data-theme="light"] {
+  --bg:        #F2F0EC;
+  --bg-card:   #E8E6E2;
+  --bg-subtle: #DCD9D4;
+  --border:    #C8C4BD;
+  --text:      #141618;
+  --muted:     #5A5E63;
+  --accent-dim:#FFD5BC;
+}
